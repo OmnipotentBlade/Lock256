@@ -5,5 +5,5 @@ This is my first significant project of 2022.
 
 ## Features
 - Secure AES-256 Encryption
-- Customizable Random Password Generator
-- GUI instead of command line
+- Customizable Random Password Generator (includes bulk .txt feature)
+- Graphical User Interface using Java Swing + AWT Libraries

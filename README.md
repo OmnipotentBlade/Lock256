@@ -6,4 +6,4 @@ This is my first significant project of Q1 & Q2 2022, and it is also a refined v
 ## Features
 - Secure AES-256 Encryption
 - Customizable Random Password Generator (includes bulk .txt feature)
-- Graphical User Interface using Java Swing + AWT Libraries
+- Graphical User Interface using Swing + AWT Libraries

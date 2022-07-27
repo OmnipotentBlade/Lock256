@@ -25,5 +25,6 @@ replay_pid*
 
 # Other
 *.txt
-.DS_Store
-.command
+*.DS_Store
+*.command
+newcanvas2.png

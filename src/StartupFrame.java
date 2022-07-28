@@ -236,4 +236,4 @@ public class StartupFrame extends JFrame implements ActionListener {
 
 // TO-DO: 1) Add button to toggle dark mode background (located in downloads folder as "startupframedark.png")
 //        2) WIP || Add part after passfile creation to create master username and password, then encrypt the credentials
-//        3) Handle username and password (mastercredentials)
+//        3) Handle username and password (mastercredentials).

@@ -7,3 +7,27 @@ This is my first significant project of Q1 & Q2 2022, and it is also a refined v
 - Secure AES-256 Encryption
 - Customizable Random Password Generator (includes bulk .txt feature)
 - Graphical User Interface using Swing + AWT Libraries
+
+## Contributing
+
+- Pull requests are always welcome and will be appreciated.
+
+    #### How to Contribute:
+    - Fork the repository by clicking "Fork" at the top of the repo page
+    - Clone the repo by using the command below:
+        ```
+        git clone "https://github.com/<YourGithubUsername>/Lock256" <targetpath>
+        ```
+    - Then, create a new branch by using the command below:
+        ```
+        git checkout -b my_new_branch
+        ```
+    - Commit changes to new branch:
+        ```
+        git commit -m "<Message>"
+        ```
+    - Push your changes/branch to your forked repository
+        ```
+        git push origin my_new_branch
+        ```
+    - Create a pull request, and I will get back to you ASAP!

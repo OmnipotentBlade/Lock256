@@ -27,4 +27,9 @@ replay_pid*
 *.txt
 *.DS_Store
 *.command
+
+# Specific Files
 newcanvas2.png
+
+# Folders
+.vscode/

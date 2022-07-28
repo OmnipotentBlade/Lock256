@@ -1,15 +1,15 @@
 package src;
 
-import src.FileMgmt;
+import src.FileMgmt.*;
 
 import java.awt.Component;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -25,7 +25,7 @@ import javax.swing.JPasswordField;
 public class StartupFrame extends JFrame implements ActionListener {
     
     JButton createNewPassFileButton, creditsButton;
-    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel;
+    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel, wrongPasswordLabel;
     JPanel nPanel, sPanel, wPanel, ePanel, cPanel;
     JTextField masterUsernameTextField, masterUsernameConfTextField;
     JPasswordField masterPasswordField, masterConfPasswordField;
@@ -90,6 +90,8 @@ public class StartupFrame extends JFrame implements ActionListener {
 
         usernameLabel = new JLabel("Username: (this can be changed later)");
         passwordLabel = new JLabel("Password:");
+        wrongPasswordLabel = new JLabel("Wrong passowrd. Please retype your password.");
+        wrongPasswordLabel.setForeground(new Color(255,0,0));
 
         nPanel = new JPanel();
         nPanel.setPreferredSize(new Dimension(800,100));
@@ -147,8 +149,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             FileMgmt.createFile("passfile", FileMgmt.FILEPATH);
             JOptionPane.showMessageDialog(this, "Password database file created!\n(" + FileMgmt.FILEPATH + ")");
 
-            // hide all components
-            //nPanel.setVisible(false); sPanel.setVisible(false); wPanel.setVisible(false); ePanel.setVisible(false); cPanel.setVisible(false);
+            // remove old labels and buttons, redraw frame, add new labels and buttons
             cPanel.remove(createNewPassFileButton); cPanel.remove(getStartedLabel); cPanel.remove(creditsButton);
             cPanel.remove(rigidConst1); cPanel.remove(rigidConst2);
             cPanel.revalidate();
@@ -195,16 +196,16 @@ public class StartupFrame extends JFrame implements ActionListener {
         }
         else if (e.getSource() == masterUsernameTextField) {
             String usernameInput = masterUsernameTextField.getText();
-            System.out.println(usernameInput);
+            System.out.println(usernameInput); // DEBUGGING
             
             // enable password to be entered after username + disable usernametextfield
             masterUsernameTextField.setEnabled(false);
-            masterPasswordField.setVisible(true);
             passwordLabel.setVisible(true);
+            masterPasswordField.setVisible(true);
         }
         else if (e.getSource() == masterPasswordField) {
             passwordInput = masterPasswordField.getPassword();
-            System.out.println(passwordInput);
+            System.out.println(passwordInput); // DEBUGGING
 
             // hide initial password field and show confirm password field
             masterPasswordField.setVisible(false);
@@ -214,11 +215,20 @@ public class StartupFrame extends JFrame implements ActionListener {
         }
         else if (e.getSource() == masterConfPasswordField) {
             char[] passwordInputConf = masterConfPasswordField.getPassword();
-            System.out.println(passwordInputConf);
+            System.out.println(passwordInputConf); // DEBUGGING
             
             if (Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("Password Match");
-            } else {System.out.println("! Password Mismatch");}
+            }
+            else if (!Arrays.equals(passwordInputConf, passwordInput)) {
+                System.out.println("! Password Mismatch");
+                FileMgmt.timeSleep("s",1);
+                passwordLabel.setText("Password:");
+                masterConfPasswordField.setVisible(false);
+                masterPasswordField.setText("");
+                masterPasswordField.setVisible(true);
+                cPanel.add(wrongPasswordLabel);
+            }
         }
     }
 }

@@ -93,7 +93,7 @@ public class FileMgmt {
                     //fileWrite.write("Password Manager v" + g_version + " by Ahmed Osman\n" + "Usernames/Passwords:\n");
                     fileWrite.close();
 
-                    System.out.println("Password database file successfully created! " + "(\"" + filepath + "\")" + "\n");
+                    System.out.println("Password database file successfully created! " + "(\"" + filepath + "\")");
                     
                     try {
                         TimeUnit.SECONDS.sleep(1);
@@ -192,6 +192,36 @@ public class FileMgmt {
         catch (FileNotFoundException e) {
             System.out.println("Something went wrong, please restart the program. (An error occured.)\n");
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Sleeps for {@code int x} seconds.
+     * @param unit - The unit of time measure. (m,s,ms)
+     * @param time - The amount of time to sleep for.
+     * @author Ahmed Osman
+     */
+    public static void timeSleep(String unit, int time) {
+        if (unit == "m") { // Minutes
+            try {
+                TimeUnit.MINUTES.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (unit == "s") { // Seconds
+            try {
+                TimeUnit.SECONDS.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (unit == "ms") { // Miliseconds
+            try {
+                TimeUnit.MILLISECONDS.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

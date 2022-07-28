@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.Box;
@@ -29,6 +30,7 @@ public class StartupFrame extends JFrame implements ActionListener {
     JTextField masterUsernameTextField, masterUsernameConfTextField;
     JPasswordField masterPasswordField, masterConfPasswordField;
     static Component rigidConst0, rigidConst1, rigidConst2;
+    char[] passwordInput, passwordInputConf;
 
     StartupFrame() {
         try {
@@ -80,10 +82,13 @@ public class StartupFrame extends JFrame implements ActionListener {
         
         masterPasswordField = new JPasswordField("", 15);
         masterPasswordField.setMaximumSize(new Dimension(440,25));
-        masterPasswordField.setActionCommand("OK");
         masterPasswordField.addActionListener(this);
 
-        usernameLabel = new JLabel("Username:");
+        masterConfPasswordField = new JPasswordField("", 15);
+        masterConfPasswordField.setMaximumSize(new Dimension(440,25));
+        masterConfPasswordField.addActionListener(this);
+
+        usernameLabel = new JLabel("Username: (this can be changed later)");
         passwordLabel = new JLabel("Password:");
 
         nPanel = new JPanel();
@@ -139,7 +144,7 @@ public class StartupFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == createNewPassFileButton) {
             createNewPassFileButton.setEnabled(false);
-            src.FileMgmt.createFile("passfile", FileMgmt.FILEPATH);
+            FileMgmt.createFile("passfile", FileMgmt.FILEPATH);
             JOptionPane.showMessageDialog(this, "Password database file created!\n(" + FileMgmt.FILEPATH + ")");
 
             // hide all components
@@ -198,13 +203,22 @@ public class StartupFrame extends JFrame implements ActionListener {
             passwordLabel.setVisible(true);
         }
         else if (e.getSource() == masterPasswordField) {
-            char[] passwordInput = masterPasswordField.getPassword();
+            passwordInput = masterPasswordField.getPassword();
             System.out.println(passwordInput);
 
             // hide initial password field and show confirm password field
             masterPasswordField.setVisible(false);
             passwordLabel.setText("Retype Password:");
-
+            cPanel.add(masterConfPasswordField);
+            masterConfPasswordField.setVisible(true);
+        }
+        else if (e.getSource() == masterConfPasswordField) {
+            char[] passwordInputConf = masterConfPasswordField.getPassword();
+            System.out.println(passwordInputConf);
+            
+            if (Arrays.equals(passwordInputConf, passwordInput)) {
+                System.out.println("Password Match");
+            } else {System.out.println("! Password Mismatch");}
         }
     }
 }

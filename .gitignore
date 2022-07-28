@@ -31,5 +31,13 @@ replay_pid*
 # Specific Files
 newcanvas2.png
 
-# Folders
+# VSCode
+*.vsix
+.history/
 .vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets

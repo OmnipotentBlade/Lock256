@@ -60,7 +60,7 @@ public class passmgrGUI {
             //set icon for mac os (and other systems which do support this method)
             taskbar.setIconImage(image);
         } catch (final UnsupportedOperationException e) {
-            System.out.println("The os does not support: 'taskbar.setIconImage'");
+            System.out.println(System.getProperty("os.name") + " does not support 'taskbar.setIconImage'");
         } catch (final SecurityException e) {
             System.out.println("There was a security exception for: 'taskbar.setIconImage'");
         }

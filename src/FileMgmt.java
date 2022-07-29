@@ -18,8 +18,10 @@ public class FileMgmt {
     final static String PASSWORD = ""; // password variable that will be used by newPasswordEntry()
     final static String KEYSETFILENAME = "aead-keyset.json"; // variable will be used by aeadCrypto()
     final static String SETTINGSFILENAME = "settings.json"; // variable will be used by settings()
-    final static String LOGOIMAGEPATH_FULL = "256_icon_rounded.png"; // file path for full icon/logo image
-    final static String LOGOIMAGEPATH_MINIMAL = "256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
+    final static String LOGOIMAGEPATH_FULL = "src/images/256_icon_rounded.png"; // file path for full icon/logo image
+    final static String LOGOIMAGEPATH_FULL_48PX = "src/images/256_icon_rounded_48px.png";
+    final static String LOGOIMAGEPATH_MINIMAL = "src/images/256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
+    final static String ICON_FILECHECKMARK = "src/images/filecheckmark.png";
 
     /**
      * Checks for the file specified. If the file type is "passfile", the user must input the file path for the passfile and encrypted passfile.

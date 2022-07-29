@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,6 +33,7 @@ public class StartupFrame extends JFrame implements ActionListener {
     JPasswordField masterPasswordField, masterConfPasswordField;
     static Component rigidConst0, rigidConst1, rigidConst2;
     char[] passwordInput, passwordInputConf;
+    ImageIcon creditsMessageIcon, fileCreatedMessageIcon;
 
     StartupFrame() {
         try {
@@ -95,6 +98,9 @@ public class StartupFrame extends JFrame implements ActionListener {
         successPasswordLabel = new JLabel("Master credentials set, encrypting...");
         successPasswordLabel.setForeground(new Color(0,163,0));
 
+        creditsMessageIcon = new ImageIcon(FileMgmt.LOGOIMAGEPATH_FULL_48PX);
+        fileCreatedMessageIcon = new ImageIcon(FileMgmt.ICON_FILECHECKMARK);
+
         nPanel = new JPanel();
         nPanel.setPreferredSize(new Dimension(800,100));
         nPanel.setLayout(new BorderLayout());
@@ -149,7 +155,7 @@ public class StartupFrame extends JFrame implements ActionListener {
         if (e.getSource() == createNewPassFileButton) {
             createNewPassFileButton.setEnabled(false);
             FileMgmt.createFile("passfile", FileMgmt.FILEPATH);
-            JOptionPane.showMessageDialog(this, "Password database file created!\n(" + FileMgmt.FILEPATH + ")");
+            JOptionPane.showOptionDialog(this, "Password database file created!\n(" + FileMgmt.FILEPATH + ")", "File Created", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, fileCreatedMessageIcon, null, null);
 
             // remove old labels and buttons, redraw frame, add new labels and buttons
             cPanel.remove(createNewPassFileButton); cPanel.remove(getStartedLabel); cPanel.remove(creditsButton);
@@ -188,7 +194,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             System.out.println("Credits button is being pressed! cb");
             
             if (System.getProperty("os.name").equals("Windows 10")) {
-                JOptionPane.showMessageDialog(this, "Lock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.");
+                JOptionPane.showOptionDialog(this, "Lock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.", "Credits", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, creditsMessageIcon, null, null);
             } else if (System.getProperty("os.name").equals("Mac OS X")) {
                 JOptionPane.showMessageDialog(this, "\nLock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.");
             } else {
@@ -233,7 +239,7 @@ public class StartupFrame extends JFrame implements ActionListener {
                 FileMgmt.timeSleep("s",1);
                 passwordLabel.setText("Password:");
                 masterConfPasswordField.setVisible(false);
-                masterPasswordField.setText("");
+                masterPasswordField.setText("");  
                 masterConfPasswordField.setText("");
                 masterPasswordField.setVisible(true);
                 masterPasswordField.requestFocus();

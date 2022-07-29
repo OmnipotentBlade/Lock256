@@ -25,7 +25,7 @@ import javax.swing.JPasswordField;
 public class StartupFrame extends JFrame implements ActionListener {
     
     JButton createNewPassFileButton, creditsButton;
-    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel, wrongPasswordLabel;
+    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel, wrongPasswordLabel, successPasswordLabel;
     JPanel nPanel, sPanel, wPanel, ePanel, cPanel;
     JTextField masterUsernameTextField, masterUsernameConfTextField;
     JPasswordField masterPasswordField, masterConfPasswordField;
@@ -90,8 +90,10 @@ public class StartupFrame extends JFrame implements ActionListener {
 
         usernameLabel = new JLabel("Username: (this can be changed later)");
         passwordLabel = new JLabel("Password:");
-        wrongPasswordLabel = new JLabel("Wrong passowrd. Please retype your password.");
+        wrongPasswordLabel = new JLabel("Wrong password. Please retype your password.");
         wrongPasswordLabel.setForeground(new Color(255,0,0));
+        successPasswordLabel = new JLabel("Master credentials set, encrypting...");
+        successPasswordLabel.setForeground(new Color(0,163,0));
 
         nPanel = new JPanel();
         nPanel.setPreferredSize(new Dimension(800,100));
@@ -173,8 +175,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             masterKeyPromptLabel.setVisible(true);
             masterKeyExplanationLabel0.setVisible(true); masterKeyExplanationLabel1.setVisible(true); masterKeyExplanationLabel2.setVisible(true);
 
-            
-
+            masterUsernameTextField.requestFocus();
             /*
             this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
             try {
@@ -202,6 +203,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             masterUsernameTextField.setEnabled(false);
             passwordLabel.setVisible(true);
             masterPasswordField.setVisible(true);
+            masterPasswordField.requestFocus();
         }
         else if (e.getSource() == masterPasswordField) {
             passwordInput = masterPasswordField.getPassword();
@@ -212,13 +214,19 @@ public class StartupFrame extends JFrame implements ActionListener {
             passwordLabel.setText("Retype Password:");
             cPanel.add(masterConfPasswordField);
             masterConfPasswordField.setVisible(true);
+            masterConfPasswordField.requestFocus();
+            wrongPasswordLabel.setVisible(false);
+            successPasswordLabel.setVisible(false);
         }
         else if (e.getSource() == masterConfPasswordField) {
             char[] passwordInputConf = masterConfPasswordField.getPassword();
             System.out.println(passwordInputConf); // DEBUGGING
-            
+
             if (Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("Password Match");
+                masterConfPasswordField.setEnabled(false);
+                cPanel.add(successPasswordLabel);
+                successPasswordLabel.setVisible(true);
             }
             else if (!Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("! Password Mismatch");
@@ -226,8 +234,11 @@ public class StartupFrame extends JFrame implements ActionListener {
                 passwordLabel.setText("Password:");
                 masterConfPasswordField.setVisible(false);
                 masterPasswordField.setText("");
+                masterConfPasswordField.setText("");
                 masterPasswordField.setVisible(true);
+                masterPasswordField.requestFocus();
                 cPanel.add(wrongPasswordLabel);
+                wrongPasswordLabel.setVisible(true);
             }
         }
     }

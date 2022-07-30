@@ -21,6 +21,7 @@ public class FileMgmt {
     final static String LOGOIMAGEPATH_FULL = "src/images/256_icon_rounded.png"; // file path for full icon/logo image
     final static String LOGOIMAGEPATH_FULL_48PX = "src/images/256_icon_rounded_48px.png";
     final static String LOGOIMAGEPATH_MINIMAL = "src/images/256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
+    final static String BG_DARKMODEIMAGEPATH = "src/images/startupframedark.png";
     final static String ICON_FILECHECKMARK = "src/images/filecheckmark.png";
 
     /**

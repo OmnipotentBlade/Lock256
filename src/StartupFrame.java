@@ -26,7 +26,7 @@ import javax.swing.JPasswordField;
 public class StartupFrame extends JFrame implements ActionListener {
     
     JButton createNewPassFileButton, creditsButton;
-    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel, wrongPasswordLabel, successPasswordLabel;
+    JLabel welcomeLabel, explanationLabel, copyrightLabel, getStartedLabel, masterKeyPromptLabel, masterKeyExplanationLabel0, masterKeyExplanationLabel1, masterKeyExplanationLabel2, masterKeyEnterLabel, usernameLabel, passwordLabel, wrongPasswordLabel, successPasswordLabel, passwordReqsLabel;
     JPanel nPanel, sPanel, wPanel, ePanel, cPanel;
     JTextField masterUsernameTextField, masterUsernameConfTextField;
     JPasswordField masterPasswordField, masterConfPasswordField;
@@ -96,10 +96,11 @@ public class StartupFrame extends JFrame implements ActionListener {
         wrongPasswordLabel.setForeground(new Color(255,0,0));
         successPasswordLabel = new JLabel("Master credentials set, encrypting...");
         successPasswordLabel.setForeground(new Color(0,163,0));
+        passwordReqsLabel = new JLabel("Your password should be 6-30 characters long.");
 
         creditsMessageIcon = new ImageIcon(FileMgmt.LOGOIMAGEPATH_FULL_48PX);
         fileCreatedMessageIcon = new ImageIcon(FileMgmt.ICON_FILECHECKMARK);
-
+        
         nPanel = new JPanel();
         nPanel.setPreferredSize(new Dimension(800,100));
         nPanel.setLayout(new BorderLayout());
@@ -174,8 +175,10 @@ public class StartupFrame extends JFrame implements ActionListener {
             cPanel.add(Box.createRigidArea(new Dimension(0,5)));
             cPanel.add(passwordLabel);
             cPanel.add(masterPasswordField);
+            cPanel.add(passwordReqsLabel);
 
             masterPasswordField.setVisible(false);
+            passwordReqsLabel.setVisible(false);
             passwordLabel.setVisible(false);
             masterKeyPromptLabel.setVisible(true);
             masterKeyExplanationLabel0.setVisible(true); masterKeyExplanationLabel1.setVisible(true); masterKeyExplanationLabel2.setVisible(true);
@@ -207,6 +210,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             // enable password to be entered after username + disable usernametextfield
             masterUsernameTextField.setEnabled(false);
             passwordLabel.setVisible(true);
+            passwordReqsLabel.setVisible(true);
             masterPasswordField.setVisible(true);
             masterPasswordField.requestFocus();
         }
@@ -216,6 +220,7 @@ public class StartupFrame extends JFrame implements ActionListener {
 
             // hide initial password field and show confirm password field
             masterPasswordField.setVisible(false);
+            passwordReqsLabel.setVisible(false);
             passwordLabel.setText("Retype Password:");
             cPanel.add(masterConfPasswordField);
             masterConfPasswordField.setVisible(true);
@@ -232,6 +237,7 @@ public class StartupFrame extends JFrame implements ActionListener {
                 masterConfPasswordField.setEnabled(false);
                 cPanel.add(successPasswordLabel);
                 successPasswordLabel.setVisible(true);
+                // TODO: Encrypt master credentials
             }
             else if (!Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("! Password Mismatch");
@@ -250,6 +256,4 @@ public class StartupFrame extends JFrame implements ActionListener {
 }
 
 
-// TO-DO: 1) Add button to toggle dark mode background (located in downloads folder as "startupframedark.png")
-//        2) WIP || Add part after passfile creation to create master username and password, then encrypt the credentials
-//        3) Handle username and password (mastercredentials)
+// TODO: Add button to toggle dark mode background (located in downloads folder as "startupframedark.png")

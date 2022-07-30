@@ -196,7 +196,7 @@ public class StartupFrame extends JFrame implements ActionListener {
             if (System.getProperty("os.name").equals("Windows 10")) {
                 JOptionPane.showOptionDialog(this, "Lock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.", "Credits", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, creditsMessageIcon, null, null);
             } else if (System.getProperty("os.name").equals("Mac OS X")) {
-                JOptionPane.showMessageDialog(this, "\nLock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.");
+                JOptionPane.showOptionDialog(this, "\nLock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.", "Credits", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
             } else {
                 JOptionPane.showMessageDialog(this, "\nLock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.");
             }

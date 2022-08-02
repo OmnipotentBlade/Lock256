@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.Spliterators.AbstractLongSpliterator;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -184,13 +185,6 @@ public class StartupFrame extends JFrame implements ActionListener {
             masterKeyExplanationLabel0.setVisible(true); masterKeyExplanationLabel1.setVisible(true); masterKeyExplanationLabel2.setVisible(true);
 
             masterUsernameTextField.requestFocus();
-            /*
-            this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
-            try {
-                TimeUnit.SECONDS.sleep(2); // commented for debugging above code
-            } catch (Exception ex) {}
-            src.passmgrGUI.main(null); // call main to check for passfile again and load mainframe
-            */
         }
         else if (e.getSource() == creditsButton) {
             System.out.println("Credits button is being pressed! cb");
@@ -238,6 +232,9 @@ public class StartupFrame extends JFrame implements ActionListener {
                 cPanel.add(successPasswordLabel);
                 successPasswordLabel.setVisible(true);
                 // TODO: Encrypt master credentials
+                
+                this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
+                src.passmgrGUI.main(null); // call main to check for passfile again and load mainframe
             }
             else if (!Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("! Password Mismatch");

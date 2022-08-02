@@ -1,0 +1,12 @@
+Example Todo: https://github.com/fabiospampinato/vscode-todo-plus/blob/master/resources/readme.todo
+
+General Lock256 Todo:
+  ☐ @critical Add secure AES-256 encryption to the program (google tink didn't work out)
+  ☐ @low Add dark mode to the program (using a background overlay?)
+  ☐ @today Test other password managers and take note of what features they do right and what standards exist
+
+  StartupFrame:
+    ☐ @low Add logo banner to the top of StartupFrame
+
+  MainFrame:
+    ☐ @low Add feedback/bug report button in the main menu of MainFrame

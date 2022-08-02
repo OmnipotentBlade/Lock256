@@ -16,23 +16,22 @@ public class passmgrGUI {
 
     public static void main(String[] args) {
         boolean passFileExists = FileMgmt.fileCheck("passfile", FileMgmt.FILEPATH, FileMgmt.ENCRYPTEDFILEPATH);
+        
         if (passFileExists == true) {
+            /*
             File passfile = new File(FileMgmt.FILEPATH);
             try {
-                passfile.delete();
+                passfile.delete();                          // UNCOMMENT IF DEBUGGING STARTUPFRAME
             } catch (Exception e) {}
             main(args);
-
-            /*
+            */
             if (iterationCount > 0) {  
                 MainFrame mFrame = new MainFrame(true);
-                setTaskbarIcon(FileMgmt.LOGOIMAGEPATH_MINIMAL);         //COMMENTED B.C. DEBUGGING STARTUPFRAME
-                
+                setTaskbarIcon(FileMgmt.LOGOIMAGEPATH_MINIMAL);
             } else {
                 MainFrame mFrame = new MainFrame(false);
                 setTaskbarIcon(FileMgmt.LOGOIMAGEPATH_MINIMAL);
             }
-            */
         }
         else if (passFileExists == false) {
             StartupFrame sFrame = new StartupFrame();

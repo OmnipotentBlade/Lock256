@@ -3,10 +3,23 @@ Example Todo: https://github.com/fabiospampinato/vscode-todo-plus/blob/master/re
 General Lock256 Todo:
   ☐ @critical Add secure AES-256 encryption to the program (google tink didn't work out)
   ☐ @low Add dark mode to the program (using a background overlay?)
-  ☐ @today Test other password managers and take note of what features they do right and what standards exist
-
+  ✔ @today Test other password managers and take note of what features they do right and what standards exist @done(22-08-02 21:14)
+    Findings:
+      ☐ Auto sign-out after a certain period of time (minutes) for enhanced security (can be toggled off in settings if user considers it annoying)
+      ☐ Folders for organizing stored credentials
+      ☐ Stores more than just passwords; also stores credit cards, notes, and home addresses.
+        - Notes function doesn't suit a password manager well, home addresses are too personal and pose a higher security risk if implemented.
+      ☐ Password Health feature that checks saved credentials for weak passwords, password that are reused among other accounts, and old passwords.
+        - The check for old passwords is not particularly necessary.
+      ☐ Sync passwords across different devices (mobile, web browser (extensions), pc)
+        - Requires online functionality and hosting a web server
+          - Hosting a web server requires funding and diving deeper into webdev, networking, and web encryption and secure delivery of credentials
+      ☐ Importing pre-existing password databases from web browsers such as Chrome, Firefox, Edge, etc.
+        - Usually in the format of a .csv or .xml file
+  
   StartupFrame:
     ☐ @low Add logo banner to the top of StartupFrame
 
   MainFrame:
     ☐ @low Add feedback/bug report button in the main menu of MainFrame
+    ☐ @high Implement functionality where the program fetches a corresponding image to the website that the user provides in their new credentials entry

@@ -22,4 +22,4 @@ General Lock256 Todo:
 
   MainFrame:
     ☐ @low Add feedback/bug report button in the main menu of MainFrame
-    ☐ @high Implement functionality where the program fetches a corresponding image to the website that the user provides in their new credentials entry
+    ☐ @high Implement functionality where the program fetches a corresponding image to the website that the user provides in their new credentials entry (look into java.net.URL)

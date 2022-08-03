@@ -1,11 +1,18 @@
 package src;
 
+import java.awt.Image;
+import java.awt.Taskbar;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class FileMgmt {
     // File management functions and global constants
@@ -226,5 +233,33 @@ public class FileMgmt {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * Sets the taskbar icon to a custom image. (cross-platform)
+     * @param frame - The frame to set the icon of.
+     * @param imageFile - The filepath of the icon image.
+     */
+    public static void setTaskbarIcon(JFrame frame ,String imageFile) {
+        // CREDITS: flohall on StackOverflow https://stackoverflow.com/a/56924202
+
+        //loading an image from a file
+        final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
+        final URL imageResource = passmgrGUI.class.getClassLoader().getResource(imageFile); // added custom .png
+        final Image image = defaultToolkit.getImage(imageResource);
+        final Taskbar taskbar = Taskbar.getTaskbar();
+
+        try {
+            //Set icon for macOS (and other systems which do support this method)
+            taskbar.setIconImage(image);
+        } catch (final UnsupportedOperationException e) {
+            System.out.println(System.getProperty("os.name") + " does not support 'taskbar.setIconImage'");
+        } catch (final SecurityException e) {
+            System.out.println("There was a security exception for: 'taskbar.setIconImage'");
+        }
+
+        //Set icon for Windows (and other systems which do support this method)
+        ImageIcon iconImage = new ImageIcon(imageFile);
+        frame.setIconImage(iconImage.getImage());
     }
 }

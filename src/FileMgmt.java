@@ -15,21 +15,33 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FileMgmt {
-    // File management functions and global constants
 
+    // File management functions and global constants
     final static double VERSION = 0.01; // global version variable
     final static String FILEPATH = "passfile.txt"; // variable to be edited according to what the user wants the password database file to be 
     final static String ENCRYPTEDFILEPATH = "ENCRYTPEDpassfile.txt";
     final static String CREDENTIALS = ""; // credentials variable that will be used later by newCredentialsEntry()
-    final static String USERNAME = ""; // username variable that will be used by newUsernameEntry()
     final static String PASSWORD = ""; // password variable that will be used by newPasswordEntry()
     final static String KEYSETFILENAME = "aead-keyset.json"; // variable will be used by aeadCrypto()
     final static String SETTINGSFILENAME = "settings.json"; // variable will be used by settings()
+
+    // Images
     final static String LOGOIMAGEPATH_FULL = "src/images/256_icon_rounded.png"; // file path for full icon/logo image
     final static String LOGOIMAGEPATH_FULL_48PX = "src/images/256_icon_rounded_48px.png";
     final static String LOGOIMAGEPATH_MINIMAL = "src/images/256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
     final static String BG_DARKMODEIMAGEPATH = "src/images/startupframedark.png";
-    final static String ICON_FILECHECKMARK = "src/images/filecheckmark.png";
+
+    // Icons
+    final static String ICON_FILECHECKMARK = "src/images/icons/filecheckmark.png";
+    final static String ICON_ASTERISK = "src/images/icons/color-asterisk.png";
+    final static String ICON_BUG = "src/images/icons/color-bug.png";
+    final static String ICON_FLAG = "src/images/icons/color-flag.png";
+    final static String ICON_GEAR = "src/images/icons/color-gear.png";
+    final static String ICON_PERSONCIRCLE = "src/images/icons/person-circle-color.png";
+    final static String ICON_STAR = "src/images/icons/color-star.png";
+
+    // Global non-final variables
+    static String USERNAME = ""; // username variable that will be used by newUsernameEntry()
 
     /**
      * Checks for the file specified. If the file type is "passfile", the user must input the file path for the passfile and encrypted passfile.

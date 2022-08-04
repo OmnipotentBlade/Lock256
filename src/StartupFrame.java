@@ -10,7 +10,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
-import java.util.Spliterators.AbstractLongSpliterator;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -145,7 +144,6 @@ public class StartupFrame extends JFrame implements ActionListener {
         this.setTitle("Lock256 Setup");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // allows the program to be closed just by clicking the "X" button at the top of the window
         this.setSize(800, 500); // set size of frame
-        //this.setLayout(new BorderLayout());
         this.setResizable(false); // disables resizing of window (ex: fullscreening)
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -232,6 +230,7 @@ public class StartupFrame extends JFrame implements ActionListener {
                 cPanel.add(successPasswordLabel);
                 successPasswordLabel.setVisible(true);
                 // TODO: Encrypt master credentials
+                FileMgmt.timeSleep("s", 2);
                 
                 this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
                 src.passmgrGUI.main(null); // call main to check for passfile again and load mainframe

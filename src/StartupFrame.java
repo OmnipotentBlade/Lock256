@@ -1,7 +1,5 @@
 package src;
 
-import src.FileMgmt.*;
-
 import java.awt.Component;
 import java.awt.BorderLayout;
 import java.awt.Color;

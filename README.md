@@ -1,7 +1,7 @@
 # Lock256
 
-[![Language](https://img.shields.io/badge/java-%3E%3D17.0.2-6D29AD.svg?style=plastic)]()
-[![License](https://img.shields.io/badge/license-GPL--3.0-6D29AD.svg?style=plastic)]()
+<img src="https://img.shields.io/badge/java-%3E%3D17.0.2-6D29AD.svg?style=plastic">
+<img src="https://img.shields.io/badge/license-GPL--3.0-6D29AD.svg?style=plastic">
 
 <img align="right" src="https://github.com/OmnipotentBlade/omnipotentblade/blob/main/256_icon_rounded.png" width="200" height="200">
 

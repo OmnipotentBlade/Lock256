@@ -3,16 +3,34 @@ package src;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.Dimension;
 import java.awt.RenderingHints;
 import java.awt.GradientPaint;
+import java.awt.GridBagLayout;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SideBarPanel extends JPanel {
     
-    SideBarPanel() {
+    JLabel usernameLabel ,userIconLabel;
+    ImageIcon userImageIcon, favoritesImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon;
+    GridBagConstraints c;
 
-        this.setLayout(null); // TODO: Figure out which layout manager to use for the sidebar (boxlayout.pageaxis?)
+    SideBarPanel() {
+        c = new GridBagConstraints();
+
+        userImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE);
+        userIconLabel = new JLabel(userImageIcon);
+        usernameLabel = new JLabel("JLABELJABEL");
+
+        this.add(userIconLabel, c);
+        this.add(usernameLabel);
+        this.setLayout(new GridBagLayout()); // TODO: Figure out which layout manager to use for the sidebar (boxlayout.pageaxis?)
     }
 
     @Override

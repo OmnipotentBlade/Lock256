@@ -9,28 +9,40 @@ import java.awt.RenderingHints;
 import java.awt.GradientPaint;
 import java.awt.GridBagLayout;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Insets;
 
 public class SideBarPanel extends JPanel {
     
     JLabel usernameLabel ,userIconLabel;
     ImageIcon userImageIcon, favoritesImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon;
-    GridBagConstraints c;
+    GridBagConstraints gbc;
 
     SideBarPanel() {
-        c = new GridBagConstraints();
+        this.setLayout(new GridBagLayout());
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.weightx = 1;
+        gbc.weighty = 1;
+        gbc.ipadx = 20;
+        gbc.ipady = 15;
+        gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 
         userImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE);
         userIconLabel = new JLabel(userImageIcon);
         usernameLabel = new JLabel("JLABELJABEL");
 
-        this.add(userIconLabel, c);
-        this.add(usernameLabel);
-        this.setLayout(new GridBagLayout()); // TODO: Figure out which layout manager to use for the sidebar (boxlayout.pageaxis?)
+        this.add(userIconLabel, gbc);
+        gbc.gridx = 0;
+        gbc.ipadx = 20;
+        //gbc.anchor = GridBagConstraints.
+        this.add(usernameLabel, gbc);
     }
 
     @Override

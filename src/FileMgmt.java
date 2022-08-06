@@ -39,6 +39,7 @@ public class FileMgmt {
     final static String ICON_GEAR = "src/images/icons/color-gear.png";
     final static String ICON_PERSONCIRCLE = "src/images/icons/person-circle-color.png";
     final static String ICON_STAR = "src/images/icons/color-star.png";
+    final static String ICON_HISTORY = "src/images/icons/color-clock-history.png";
 
     // Global non-final variables
     static String USERNAME = ""; // username variable that will be used by newUsernameEntry()

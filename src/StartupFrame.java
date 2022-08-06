@@ -196,6 +196,7 @@ public class StartupFrame extends JFrame implements ActionListener {
         else if (e.getSource() == masterUsernameTextField) {
             String usernameInput = masterUsernameTextField.getText();
             System.out.println(usernameInput); // DEBUGGING
+            FileMgmt.USERNAME = usernameInput;
             
             // enable password to be entered after username + disable usernametextfield
             masterUsernameTextField.setEnabled(false);

@@ -16,33 +16,45 @@ import java.awt.Insets;
 
 public class SideBarPanel extends JPanel {
     
-    JLabel usernameLabel ,userIconLabel;
-    ImageIcon userImageIcon, favoritesImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon;
+    JLabel usernameLabel, userIconLabel;
+    ImageIcon userImageIcon, favoritesImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon, settingsImageIcon;
     GridBagConstraints gbc;
 
     SideBarPanel() {
         this.setLayout(new GridBagLayout());
 
+        userImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE);
+        favoritesImageIcon = new ImageIcon(FileMgmt.ICON_STAR);
+        loginsImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE); // TODO: Change image to actual login image once it is included in src/images/icons
+        recentsImageIcon = new ImageIcon(FileMgmt.ICON_HISTORY);
+        passwordsImageIcon = new ImageIcon(FileMgmt.ICON_ASTERISK);
+        reportImageIcon = new ImageIcon(FileMgmt.ICON_FLAG);
+        settingsImageIcon = new ImageIcon(FileMgmt.ICON_GEAR);
+
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridheight = 1;
+        gbc.gridheight = 2;
         gbc.gridwidth = 1;
-        gbc.weightx = 1;
+        gbc.weightx = 0;
         gbc.weighty = 1;
         gbc.ipadx = 20;
         gbc.ipady = 15;
         gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        userImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE);
         userIconLabel = new JLabel(userImageIcon);
-        usernameLabel = new JLabel("JLABELJABEL");
+        usernameLabel = new JLabel("USERNAME");
 
         this.add(userIconLabel, gbc);
-        gbc.gridx = 0;
-        gbc.ipadx = 20;
-        //gbc.anchor = GridBagConstraints.
-        this.add(usernameLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.ipadx = 0;
+        gbc.ipady = 31;
+        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.PAGE_START;
+        
+        this.add(new GraphicsDrawString(), gbc);
     }
 
     @Override

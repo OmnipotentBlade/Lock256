@@ -17,6 +17,7 @@ General Lock256 Todo:
       ☐ Importing pre-existing password databases from web browsers such as Chrome, Firefox, Edge, etc.
         - Usually in the format of a .csv or .xml file
   ☐ @high Figure out how to use GridBagLayout
+  ☐ @low Add original lock256 minimal icon (smaller one) because for macOS because it's too large
   
   StartupFrame:
     ☐ @low Add logo banner to the top of StartupFrame

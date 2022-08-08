@@ -51,10 +51,10 @@ public class SideBarPanel extends JPanel {
 
         userGbc.gridx = 0;
         userGbc.gridy = 0;
-        userGbc.gridheight = 2;
+        userGbc.gridheight = 1;
         userGbc.gridwidth = 1;
         userGbc.weightx = 0;
-        userGbc.weighty = 1;
+        userGbc.weighty = 0.2;
         userGbc.ipadx = 20;
         userGbc.ipady = 15;
         userGbc.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -65,9 +65,9 @@ public class SideBarPanel extends JPanel {
         usernameGbc.gridx = 1;
         usernameGbc.gridy = 0;
         usernameGbc.gridheight = 1;
-        usernameGbc.gridwidth = 1;
+        usernameGbc.gridwidth = 0;
         usernameGbc.weightx = 1;
-        usernameGbc.weighty = 1;
+        usernameGbc.weighty = 0;
         usernameGbc.ipadx = 0;
         usernameGbc.ipady = 31;
         usernameGbc.anchor = GridBagConstraints.PAGE_START;
@@ -76,24 +76,24 @@ public class SideBarPanel extends JPanel {
         this.add(new GraphicsDrawString(), usernameGbc);
 
         favoritesGbc.gridx = 0;
-        favoritesGbc.gridy = 2;
+        favoritesGbc.gridy = GridBagConstraints.RELATIVE;
         favoritesGbc.gridheight = 1;
         favoritesGbc.gridwidth = 1;
         favoritesGbc.weightx = 0;
-        favoritesGbc.weighty = 1;
+        favoritesGbc.weighty = 0.2;
         favoritesGbc.ipadx = 0;
         favoritesGbc.ipady = 0;
-        favoritesGbc.anchor = GridBagConstraints.FIRST_LINE_START;
+        favoritesGbc.anchor = GridBagConstraints.LINE_START;
         favoritesGbc.fill = GridBagConstraints.HORIZONTAL;
 
         this.add(favoritesLabel, favoritesGbc);
 
         recentsGbc.gridx = 0;
-        recentsGbc.gridy = 3;
-        recentsGbc.gridheight = 4;
+        recentsGbc.gridy = GridBagConstraints.RELATIVE;
+        recentsGbc.gridheight = 1;
         recentsGbc.gridwidth = 1;
         recentsGbc.weightx = 0;
-        recentsGbc.weighty = 1;
+        recentsGbc.weighty = 0.2;
         recentsGbc.ipadx = 0;
         recentsGbc.ipady = 0;
         recentsGbc.anchor = GridBagConstraints.LINE_START;
@@ -102,27 +102,27 @@ public class SideBarPanel extends JPanel {
         this.add(recentsLabel, recentsGbc);
 
         loginsGbc.gridx = 0;
-        loginsGbc.gridy = 4;
-        loginsGbc.gridheight = 4;
+        loginsGbc.gridy = GridBagConstraints.RELATIVE;
+        loginsGbc.gridheight = 1;
         loginsGbc.gridwidth = 1;
         loginsGbc.weightx = 0;
-        loginsGbc.weighty = 1;
+        loginsGbc.weighty = 0.2;
         loginsGbc.ipadx = 0;
         loginsGbc.ipady = 0;
-        loginsGbc.anchor = GridBagConstraints.LAST_LINE_START;
+        loginsGbc.anchor = GridBagConstraints.LINE_START;
         loginsGbc.fill = GridBagConstraints.HORIZONTAL;
 
         this.add(loginsLabel, loginsGbc);
 
         passwordsGbc.gridx = 0;
-        passwordsGbc.gridy = 5;
-        passwordsGbc.gridheight = 5;
+        passwordsGbc.gridy = GridBagConstraints.RELATIVE;
+        passwordsGbc.gridheight = 1;
         passwordsGbc.gridwidth = 1;
         passwordsGbc.weightx = 0;
-        passwordsGbc.weighty = 0;
+        passwordsGbc.weighty = 0.2;
         passwordsGbc.ipadx = 0;
         passwordsGbc.ipady = 0;
-        passwordsGbc.anchor = GridBagConstraints.LAST_LINE_START;
+        passwordsGbc.anchor = GridBagConstraints.LINE_START;
         passwordsGbc.fill = GridBagConstraints.HORIZONTAL;
 
         this.add(passwordsLabel, passwordsGbc);

@@ -16,13 +16,13 @@ General Lock256 Todo:
           - Hosting a web server requires funding and diving deeper into webdev, networking, and web encryption and secure delivery of credentials
       ☐ Importing pre-existing password databases from web browsers such as Chrome, Firefox, Edge, etc.
         - Usually in the format of a .csv or .xml file
-  ☐ @high Figure out how to use GridBagLayout
+  ✔ @high Figure out how to use GridBagLayout @done(22-08-10 12:54)
   ☐ @low Add original lock256 minimal icon (smaller one) because for macOS because it's too large in the taskbar/dock
   
   StartupFrame:
     ☐ @low Add logo banner to the top of StartupFrame
 
   MainFrame:
-    ☐ @low Add feedback/bug report button in the main menu of MainFrame
+    ✔ @low Add feedback/bug report button in the main menu of MainFrame @done(22-08-08 15:28)
     ☐ @high Implement functionality where the program fetches a corresponding image to the website that the user provides in their new credentials entry (look into java.net.URL)
     ☐ @today Add icons and corresponding text to program sidebar

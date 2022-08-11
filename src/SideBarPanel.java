@@ -3,8 +3,6 @@ package src;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.Dimension;
 import java.awt.RenderingHints;
 import java.awt.GradientPaint;
 import java.awt.GridBagLayout;
@@ -12,7 +10,6 @@ import java.awt.GridBagLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.Insets;
 
 public class SideBarPanel extends JPanel {
     
@@ -20,6 +17,7 @@ public class SideBarPanel extends JPanel {
     ImageIcon userImageIcon, favoritesImageIcon, favoritesTextImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon, settingsImageIcon;
 
     SideBarPanel() {
+        repaint();
         GBCSideBar gSideBar = new GBCSideBar();
         this.setLayout(new GridBagLayout());
 
@@ -43,7 +41,7 @@ public class SideBarPanel extends JPanel {
         settingsLabel = new JLabel(settingsImageIcon);
 
         this.add(userLabel, gSideBar.getGbc("user"));
-        this.add(new GraphicsDrawString(), gSideBar.getGbc("username"));
+        this.add(new GraphicsDrawString(), gSideBar.getGbc("username")); repaint();
         this.add(favoritesLabel, gSideBar.getGbc("favorites"));
         //this.add(favoritesTextLabel, favoritesTextGbc);
         this.add(recentsLabel, gSideBar.getGbc("recents"));

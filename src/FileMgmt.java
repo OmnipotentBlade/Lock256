@@ -29,6 +29,7 @@ public class FileMgmt {
     final static String LOGOIMAGEPATH_FULL = "src/images/256_icon_rounded.png"; // file path for full icon/logo image
     final static String LOGOIMAGEPATH_FULL_48PX = "src/images/256_icon_rounded_48px.png";
     final static String LOGOIMAGEPATH_MINIMAL = "src/images/256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
+    final static String LOGOIMAGEPATH_MINIMAL_MACOS = "src/images/256_icon_rounded_minimal_macOS.png";
     final static String BG_DARKMODEIMAGEPATH = "src/images/startupframedark.png";
 
     // Icons
@@ -252,18 +253,26 @@ public class FileMgmt {
      * Sets the taskbar icon to a custom image. (cross-platform)
      * @param frame - The frame to set the icon of.
      * @param imageFile - The filepath of the icon image.
+     * @param macOS - Set to {@code true} to use specific macOS-optimized icon, {@code null} or {@code false} to not.
      */
-    public static void setTaskbarIcon(JFrame frame, String imageFile) {
+    public static void setTaskbarIcon(JFrame frame, String imageFile, Boolean macOS) {
         // CREDITS: flohall on StackOverflow https://stackoverflow.com/a/56924202
 
-        //loading an image from a file
+        final URL imageResource;
+
+        // loading an image from a file
+        // If "macOS" = true, use specific macOS-optimized icon image
         final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
-        final URL imageResource = passmgrGUI.class.getClassLoader().getResource(imageFile); // added custom .png
+        if (macOS == true) {
+            imageResource = passmgrGUI.class.getClassLoader().getResource(LOGOIMAGEPATH_MINIMAL_MACOS); // added custom .png
+        } else {
+            imageResource = passmgrGUI.class.getClassLoader().getResource(imageFile); // added custom .png
+        }
         final Image image = defaultToolkit.getImage(imageResource);
         final Taskbar taskbar = Taskbar.getTaskbar();
 
         try {
-            //Set icon for macOS (and other systems which do support this method)
+            // Set icon for macOS (and other systems which do support this method)
             taskbar.setIconImage(image);
         } catch (final UnsupportedOperationException e) {
             System.out.println(System.getProperty("os.name") + " does not support 'taskbar.setIconImage'");
@@ -271,7 +280,7 @@ public class FileMgmt {
             System.out.println("There was a security exception for: 'taskbar.setIconImage'");
         }
 
-        //Set icon for Windows (and other systems which do support this method)
+        // Set icon for Windows (and other systems which do support this method)
         ImageIcon iconImage = new ImageIcon(imageFile);
         frame.setIconImage(iconImage.getImage());
     }

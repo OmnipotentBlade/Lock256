@@ -18,17 +18,17 @@ public class passmgrGUI {
             */
             if (iterationCount > 0) {  
                 MainFrame mFrame = new MainFrame(true);
-                FileMgmt.setTaskbarIcon(mFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL);
+                FileMgmt.setTaskbarIcon(mFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL, true);
             } else {
                 MainFrame mFrame = new MainFrame(false);
-                FileMgmt.setTaskbarIcon(mFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL);
+                FileMgmt.setTaskbarIcon(mFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL, true);
             }
         }
         else if (passFileExists == false) {
             sFrame = new StartupFrame();
             iterationCount += 1;
 
-            FileMgmt.setTaskbarIcon(sFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL); // works on Mac + Windows
+            FileMgmt.setTaskbarIcon(sFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL, true); // works on Mac + Windows
         }
     }
 }

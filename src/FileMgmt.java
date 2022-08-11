@@ -143,7 +143,7 @@ public class FileMgmt {
                 if (settingsfile.createNewFile()) { // checks if settingsfile can be created, result would be true if it can
                     FileWriter fileWrite = new FileWriter(filepath);
                     //fileWrite.write("Password Manager v" + g_version + " by Ahmed Osman\n" + "Usernames/Passwords:\n");
-                    //fileWrite.close();
+                    fileWrite.close();
 
                     System.out.println("Settings database file successfully created! " + "(\"" + filepath + "\")" + "\n");
                     

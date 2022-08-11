@@ -45,7 +45,12 @@ public class StartupFrame extends JFrame implements ActionListener {
         //explanationLabel.setBounds(10,40,800,20);
         welcomeLabel.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-        copyrightLabel = new JLabel("© OmnipotentBlade 2022. All rights reserved.");
+        if (System.getProperty("os.name").equals("Windows 10") || System.getProperty("os.name").equals("Windows 11")) {
+            copyrightLabel = new JLabel("© OmnipotentBlade 2022. All rights reserved.");
+        }
+        else if (System.getProperty("os.name").equals("Mac OS X")) {
+            copyrightLabel = new JLabel("© OmnipotentBlade 2022. All rights reserved.   ");
+        }
         copyrightLabel.setAlignmentX(RIGHT_ALIGNMENT);
         //copyrightLabel.setBounds(500,400,800,100);
 
@@ -185,7 +190,7 @@ public class StartupFrame extends JFrame implements ActionListener {
         else if (e.getSource() == creditsButton) {
             System.out.println("Credits button is being pressed! cb");
             
-            if (System.getProperty("os.name").equals("Windows 10")) {
+            if (System.getProperty("os.name").equals("Windows 10") || System.getProperty("os.name").equals("Windows 11")) {
                 JOptionPane.showOptionDialog(this, "Lock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.", "Credits", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, creditsMessageIcon, null, null);
             } else if (System.getProperty("os.name").equals("Mac OS X")) {
                 JOptionPane.showOptionDialog(this, "\nLock256\n\nLead Developer: Ahmed Osman\nProgram Logo: Hisham Osman\nProgram Name: Timothy Kane\n\n© OmnipotentBlade 2022.", "Credits", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);

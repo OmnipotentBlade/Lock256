@@ -253,7 +253,7 @@ public class FileMgmt {
      * @param frame - The frame to set the icon of.
      * @param imageFile - The filepath of the icon image.
      */
-    public static void setTaskbarIcon(JFrame frame ,String imageFile) {
+    public static void setTaskbarIcon(JFrame frame, String imageFile) {
         // CREDITS: flohall on StackOverflow https://stackoverflow.com/a/56924202
 
         //loading an image from a file

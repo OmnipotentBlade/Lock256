@@ -16,15 +16,16 @@ import java.awt.Insets;
 
 public class SideBarPanel extends JPanel {
     
-    JLabel usernameLabel, userLabel, favoritesLabel, loginsLabel, recentsLabel, passwordsLabel, reportLabel, settingsLabel;
-    ImageIcon userImageIcon, favoritesImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon, settingsImageIcon;
-    GridBagConstraints userGbc, usernameGbc, favoritesGbc, loginsGbc, recentsGbc, passwordsGbc, reportGbc, settingsGbc;
+    JLabel usernameLabel, userLabel, favoritesLabel, favoritesTextLabel, loginsLabel, recentsLabel, passwordsLabel, reportLabel, settingsLabel;
+    ImageIcon userImageIcon, favoritesImageIcon, favoritesTextImageIcon, recentsImageIcon, passwordsImageIcon, generateImageIcon, loginsImageIcon, reportImageIcon, settingsImageIcon;
 
     SideBarPanel() {
+        GBCSideBar gSideBar = new GBCSideBar();
         this.setLayout(new GridBagLayout());
 
         userImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE);
         favoritesImageIcon = new ImageIcon(FileMgmt.ICON_STAR);
+        favoritesTextImageIcon = new ImageIcon("src/images/text_favorites.png");
         loginsImageIcon = new ImageIcon(FileMgmt.ICON_PERSONCIRCLE); // TODO: Change image to actual login image once it is included in src/images/icons
         recentsImageIcon = new ImageIcon(FileMgmt.ICON_HISTORY);
         passwordsImageIcon = new ImageIcon(FileMgmt.ICON_ASTERISK);
@@ -34,98 +35,22 @@ public class SideBarPanel extends JPanel {
         userLabel = new JLabel(userImageIcon);
         usernameLabel = new JLabel("USERNAME");
         favoritesLabel = new JLabel(favoritesImageIcon);
+        favoritesTextLabel = new JLabel(favoritesTextImageIcon);
         loginsLabel = new JLabel(loginsImageIcon);
         recentsLabel = new JLabel(recentsImageIcon);
         passwordsLabel = new JLabel(passwordsImageIcon);
         reportLabel = new JLabel(reportImageIcon);
         settingsLabel = new JLabel(settingsImageIcon);
 
-        userGbc = new GridBagConstraints();
-        usernameGbc = new GridBagConstraints();
-        favoritesGbc = new GridBagConstraints();
-        loginsGbc = new GridBagConstraints();
-        recentsGbc = new GridBagConstraints();
-        passwordsGbc = new GridBagConstraints();
-        reportGbc = new GridBagConstraints();
-        settingsGbc = new GridBagConstraints();
-
-        userGbc.gridx = 0;
-        userGbc.gridy = 0;
-        userGbc.gridheight = 1;
-        userGbc.gridwidth = 1;
-        userGbc.weightx = 0;
-        userGbc.weighty = 0.2;
-        userGbc.ipadx = 20;
-        userGbc.ipady = 15;
-        userGbc.anchor = GridBagConstraints.FIRST_LINE_START;
-        userGbc.fill = GridBagConstraints.HORIZONTAL;
-
-        this.add(userLabel, userGbc);
-
-        usernameGbc.gridx = 1;
-        usernameGbc.gridy = 0;
-        usernameGbc.gridheight = 1;
-        usernameGbc.gridwidth = 0;
-        usernameGbc.weightx = 1;
-        usernameGbc.weighty = 0;
-        usernameGbc.ipadx = 0;
-        usernameGbc.ipady = 31;
-        usernameGbc.anchor = GridBagConstraints.PAGE_START;
-        usernameGbc.fill = GridBagConstraints.HORIZONTAL;
-        
-        this.add(new GraphicsDrawString(), usernameGbc);
-
-        favoritesGbc.gridx = 0;
-        favoritesGbc.gridy = GridBagConstraints.RELATIVE;
-        favoritesGbc.gridheight = 1;
-        favoritesGbc.gridwidth = 1;
-        favoritesGbc.weightx = 0;
-        favoritesGbc.weighty = 0.2;
-        favoritesGbc.ipadx = 0;
-        favoritesGbc.ipady = 0;
-        favoritesGbc.anchor = GridBagConstraints.LINE_START;
-        favoritesGbc.fill = GridBagConstraints.HORIZONTAL;
-
-        this.add(favoritesLabel, favoritesGbc);
-
-        recentsGbc.gridx = 0;
-        recentsGbc.gridy = GridBagConstraints.RELATIVE;
-        recentsGbc.gridheight = 1;
-        recentsGbc.gridwidth = 1;
-        recentsGbc.weightx = 0;
-        recentsGbc.weighty = 0.2;
-        recentsGbc.ipadx = 0;
-        recentsGbc.ipady = 0;
-        recentsGbc.anchor = GridBagConstraints.LINE_START;
-        recentsGbc.fill = GridBagConstraints.HORIZONTAL;
-
-        this.add(recentsLabel, recentsGbc);
-
-        loginsGbc.gridx = 0;
-        loginsGbc.gridy = GridBagConstraints.RELATIVE;
-        loginsGbc.gridheight = 1;
-        loginsGbc.gridwidth = 1;
-        loginsGbc.weightx = 0;
-        loginsGbc.weighty = 0.2;
-        loginsGbc.ipadx = 0;
-        loginsGbc.ipady = 0;
-        loginsGbc.anchor = GridBagConstraints.LINE_START;
-        loginsGbc.fill = GridBagConstraints.HORIZONTAL;
-
-        this.add(loginsLabel, loginsGbc);
-
-        passwordsGbc.gridx = 0;
-        passwordsGbc.gridy = GridBagConstraints.RELATIVE;
-        passwordsGbc.gridheight = 1;
-        passwordsGbc.gridwidth = 1;
-        passwordsGbc.weightx = 0;
-        passwordsGbc.weighty = 0.2;
-        passwordsGbc.ipadx = 0;
-        passwordsGbc.ipady = 0;
-        passwordsGbc.anchor = GridBagConstraints.LINE_START;
-        passwordsGbc.fill = GridBagConstraints.HORIZONTAL;
-
-        this.add(passwordsLabel, passwordsGbc);
+        this.add(userLabel, gSideBar.getGbc("user"));
+        this.add(new GraphicsDrawString(), gSideBar.getGbc("username"));
+        this.add(favoritesLabel, gSideBar.getGbc("favorites"));
+        //this.add(favoritesTextLabel, favoritesTextGbc);
+        this.add(recentsLabel, gSideBar.getGbc("recents"));
+        this.add(loginsLabel, gSideBar.getGbc("logins"));
+        this.add(passwordsLabel, gSideBar.getGbc("passwords"));
+        this.add(reportLabel, gSideBar.getGbc("report"));
+        this.add(settingsLabel, gSideBar.getGbc("settings"));
     }
 
     @Override

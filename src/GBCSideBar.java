@@ -1,5 +1,3 @@
-package src;
-
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 

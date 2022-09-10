@@ -1,5 +1,3 @@
-package src;
-
 import java.awt.Component;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -237,7 +235,7 @@ public class StartupFrame extends JFrame implements ActionListener {
                 FileMgmt.timeSleep("s", 2);
                 
                 this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
-                src.passmgrGUI.main(null); // call main to check for passfile again and load mainframe
+                passmgrGUI.main(null); // call main to check for passfile again and load mainframe
             }
             else if (!Arrays.equals(passwordInputConf, passwordInput)) {
                 System.out.println("! Password Mismatch");

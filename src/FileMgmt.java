@@ -1,5 +1,3 @@
-package src;
-
 import java.awt.Image;
 import java.awt.Taskbar;
 import java.awt.Toolkit;
@@ -29,7 +27,7 @@ public class FileMgmt {
     final static String LOGOIMAGEPATH_FULL = "src/images/256_icon_rounded.png"; // file path for full icon/logo image
     final static String LOGOIMAGEPATH_FULL_48PX = "src/images/256_icon_rounded_48px.png";
     final static String LOGOIMAGEPATH_MINIMAL = "src/images/256_icon_rounded_minimal.png"; // file path for minimal icon/logo image
-    final static String LOGOIMAGEPATH_MINIMAL_MACOS = "src/images/256_icon_rounded_minimal_macOS.png";
+    final static String LOGOIMAGEPATH_MINIMAL_MACOS = "images/256_icon_rounded_minimal_macOS.png";
     final static String BG_DARKMODEIMAGEPATH = "src/images/startupframedark.png";
 
     // Icons
@@ -264,7 +262,7 @@ public class FileMgmt {
         // If "macOS" = true, use specific macOS-optimized icon image
         final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
         if (macOS == true) {
-            imageResource = passmgrGUI.class.getClassLoader().getResource(LOGOIMAGEPATH_MINIMAL_MACOS); // added custom .png
+            imageResource = passmgrGUI.class.getClassLoader().getResource(LOGOIMAGEPATH_MINIMAL_MACOS);
         } else {
             imageResource = passmgrGUI.class.getClassLoader().getResource(imageFile); // added custom .png
         }

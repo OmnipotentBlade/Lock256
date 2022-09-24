@@ -1,4 +1,4 @@
-package src;
+import java.io.FileNotFoundException;
 
 public class passmgrGUI {
 
@@ -22,6 +22,13 @@ public class passmgrGUI {
             } else {
                 MainFrame mFrame = new MainFrame(false);
                 FileMgmt.setTaskbarIcon(mFrame, FileMgmt.LOGOIMAGEPATH_MINIMAL, true);
+                try {
+                    JSONMgmt.JSONWrite("name", "ahmed");
+                    JSONMgmt.JSONWrite("date", "august");
+                    JSONMgmt.JSONWrite("year", "2022");
+                } catch (FileNotFoundException e) {
+                    //TODO: handle exception
+                }
             }
         }
         else if (passFileExists == false) {

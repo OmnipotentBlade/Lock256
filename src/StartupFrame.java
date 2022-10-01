@@ -233,7 +233,9 @@ public class StartupFrame extends JFrame implements ActionListener {
                 successPasswordLabel.setVisible(true);
                 // TODO: Encrypt master credentials
                 FileMgmt.timeSleep("s", 2);
-                
+
+                JSONMgmt.JSONWrite("username");
+
                 this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
                 passmgrGUI.main(null); // call main to check for passfile again and load mainframe
             }

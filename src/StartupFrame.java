@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 import javax.swing.Box;
@@ -234,7 +235,12 @@ public class StartupFrame extends JFrame implements ActionListener {
                 // TODO: Encrypt master credentials
                 FileMgmt.timeSleep("s", 2);
 
-                JSONMgmt.JSONWrite("username");
+                try {
+                    JSONMgmt.JSONWrite("username", FileMgmt.USERNAME);
+                    JSONMgmt.JSONWrite("password", "amazing");
+                } catch (FileNotFoundException exc) {
+                    exc.printStackTrace();
+                }
 
                 this.dispose(); // dispose of setup frame and only allow mainframe to be displayed
                 passmgrGUI.main(null); // call main to check for passfile again and load mainframe

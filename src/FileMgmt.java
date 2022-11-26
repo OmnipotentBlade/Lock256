@@ -261,7 +261,7 @@ public class FileMgmt {
         // loading an image from a file
         // If "macOS" = true, use specific macOS-optimized icon image
         final Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
-        if (macOS == true) {
+        if (macOS) {
             imageResource = passmgrGUI.class.getClassLoader().getResource(LOGOIMAGEPATH_MINIMAL_MACOS);
         } else {
             imageResource = passmgrGUI.class.getClassLoader().getResource(imageFile); // added custom .png

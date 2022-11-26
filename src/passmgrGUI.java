@@ -8,7 +8,7 @@ public class passmgrGUI {
     public static void main(String[] args) {
         boolean passFileExists = FileMgmt.fileCheck("passfile", FileMgmt.FILEPATH, FileMgmt.ENCRYPTEDFILEPATH);
         
-        if (passFileExists == true) {
+        if (passFileExists) {
             /*
             File passfile = new File(FileMgmt.FILEPATH);
             try {

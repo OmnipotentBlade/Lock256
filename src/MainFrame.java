@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements ActionListener {
     SideBarPanel sideBarPanel;
 
     MainFrame(Boolean startup) { // startup = whether mainframe was called from startupframe or not
-        if (startup == true) {
+        if (startup) {
             // add code if it requires condition above
         }
 
